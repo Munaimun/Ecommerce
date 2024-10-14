@@ -7,20 +7,20 @@ const Navigation = () => {
   return (
     <>
       <div className="text-center justify-center">
-        <div className="max-w-screen-xl m-auto text-center flex justify-between items-center h-14 ">
-          {/* the logo */}
-          <div>
-            <Link>
-              <img src={logo} alt="" className="w-9" />
-            </Link>
-          </div>
+        <div className="bg-sky-900">
+          <div className="max-w-screen-xl m-auto flex justify-between items-center h-14 text-slate-200">
+            {/* the logo */}
+            <div>
+              <Link to="/">
+                <img src={logo} alt="" className="w-9" />
+              </Link>
+            </div>
 
-          {/* nav links */}
-          <div className="flex w-3/5 justify-between">
-            <Link>links</Link>
-            <Link>links</Link>
-            <Link>links</Link>
-            <Link>links</Link>
+            {/* nav links */}
+            <div className="flex w-3/5 justify-between">
+              <Link to="shop">Shop</Link>
+              <Link to="sign-in">Sign In</Link>
+            </div>
           </div>
         </div>
 
