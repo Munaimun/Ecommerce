@@ -59,7 +59,8 @@ const SignUpForm = () => {
 
   return (
     <div className="w-2/4 mt-4">
-      <p className="font-light  sm:text-4xl">
+      <p className="sm:text-4xl text-sky-300">Don&apos;t have an Account?</p>
+      <p className="font-light sm:text-2xl mt-2">
         Sign-Up with your Email & Password
       </p>
 
@@ -101,7 +102,7 @@ const SignUpForm = () => {
         />
 
         <Button
-          className="before:ease relative sm:h-12 sm:w-40 overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180 m-1"
+          className="before:ease relative sm:h-12 sm:w-40 overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180 mt-2"
           type="submit"
         >
           <span className="relative z-10">Sign Up</span>

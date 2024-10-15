@@ -19,10 +19,8 @@ const Navigation = () => {
             {/* nav links */}
             <div className="flex w-3/5 justify-between">
               <Link to="shop">Shop</Link>
-              <Link
-                className="focus:font-semibold focus:text-white"
-                to="sign-in"
-              >
+
+              <Link className="focus:font-semibold focus:text-white" to="auth">
                 Sign In
               </Link>
             </div>

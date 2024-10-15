@@ -5,7 +5,7 @@ import Home from "./routes/Home.component";
 
 import "./App.css";
 import Navigation from "./routes/Navigation.component";
-import SignIn from "./routes/SignIn.component";
+import Authentication from "./routes/Authentication";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route path="auth" element={<Authentication />} />
         </Route>
       </Routes>
       {/* For showing the react toast */}
