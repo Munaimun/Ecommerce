@@ -1,9 +1,22 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { useContext } from "react";
+
+import { UserContexts } from "../contexts/user.contexts";
+import { signOutUser } from "../utils/firebase/Firebase.utils";
+
 import logo from "../assets/logo.svg";
 
 const Navigation = () => {
+  const { currentUser, setCurrentUser } = useContext(UserContexts);
+
+  //SignOut User
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+
   return (
     <>
       <div className="text-center justify-center">
@@ -12,17 +25,29 @@ const Navigation = () => {
             {/* the logo */}
             <div>
               <Link to="/">
-                <img src={logo} alt="" className="w-9" />
+                <img src={logo} alt="" className="w-9 sm:ml-0 ml-3" />
               </Link>
             </div>
 
             {/* nav links */}
-            <div className="flex w-3/5 justify-between">
+            <div className="flex sm:w-3/5 w-2/4 justify-between sm:mr-0 mr-4">
               <Link to="shop">Shop</Link>
 
-              <Link className="focus:font-semibold focus:text-white" to="auth">
-                Sign In
-              </Link>
+              {currentUser ? (
+                <Link
+                  className="focus:font-semibold focus:text-white"
+                  onClick={signOutHandler}
+                >
+                  Sign Out
+                </Link>
+              ) : (
+                <Link
+                  className="focus:font-semibold focus:text-white"
+                  to="auth"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         </div>

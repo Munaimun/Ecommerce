@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -6,6 +6,8 @@ import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/Firebase.utils";
+
+import { UserContexts } from "../../contexts/user.contexts";
 import FormInput from "../form-input/FormInput.component";
 import Button from "../Button/Button.component";
 
@@ -17,6 +19,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const { setCurrentUser } = useContext(UserContexts);
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
@@ -30,8 +33,11 @@ const SignInForm = () => {
     e.preventDefault();
 
     try {
-      const res = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(res);
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      setCurrentUser(user);
       resetFormFields();
       toast.success("Sign-In succesful");
     } catch (error) {

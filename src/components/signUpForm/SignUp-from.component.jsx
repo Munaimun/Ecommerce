@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/Firebase.utils";
+
+import { UserContexts } from "../../contexts/user.contexts";
 import FormInput from "../form-input/FormInput.component";
 import Button from "../Button/Button.component";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const defaultFormFields = {
   displayName: "",
@@ -19,6 +22,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const { setCurrentUser } = useContext(UserContexts);
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
@@ -37,10 +41,12 @@ const SignUpForm = () => {
         email,
         password
       );
+      setCurrentUser(user);
 
       //   Creating the user with email& pass
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
+      console.log(user);
       toast.success("Sign-up succesful");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
