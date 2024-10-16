@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,13 +20,11 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { setCurrentUser } = useContext(UserContexts);
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
   const signInWithGoggle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const createUserDocumentFromAuth = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   //   Handle Submit
@@ -37,7 +36,6 @@ const SignInForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
       resetFormFields();
       toast.success("Sign-In succesful");
     } catch (error) {

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -6,7 +6,6 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/Firebase.utils";
 
-import { UserContexts } from "../../contexts/user.contexts";
 import FormInput from "../form-input/FormInput.component";
 import Button from "../Button/Button.component";
 
@@ -22,7 +21,6 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const { setCurrentUser } = useContext(UserContexts);
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
@@ -41,7 +39,6 @@ const SignUpForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
 
       //   Creating the user with email& pass
       await createUserDocumentFromAuth(user, { displayName });

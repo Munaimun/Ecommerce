@@ -3,9 +3,9 @@ import SignUpForm from "../components/signUpForm/SignUp-from.component";
 
 const Authentication = () => {
   return (
-    <div className="animate__animated animate__backInLeft mt-8">
+    <div className="animate__animated animate__backInLeft mt-20">
       {/* THE FORMS */}
-      <div className="max-w-screen-xl sm:m-auto sm:flex sm:flex-wrap sm:justify-between">
+      <div className="max-w-screen-xl flex flex-col sm:flex-row justify-center items-center m-auto">
         {/* The Sign-In form */}
         <SignInForm />
 

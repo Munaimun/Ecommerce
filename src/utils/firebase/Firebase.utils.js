@@ -8,10 +8,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 // Firestore
 import { doc, getDoc, setDoc, getFirestore } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -47,12 +49,11 @@ export const createUserDocumentFromAuth = async (
   console.log(userDocRef);
 
   const useSnapShot = await getDoc(userDocRef);
-  console.log("use snapshot", useSnapShot);
 
   if (!useSnapShot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
-
+    toast.success("Sign-In Succesfull");
     try {
       await setDoc(userDocRef, {
         displayName,
@@ -80,3 +81,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 //method for signing out a user
 export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
