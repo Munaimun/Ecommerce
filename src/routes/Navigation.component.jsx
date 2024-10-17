@@ -1,14 +1,22 @@
 import { useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+
+import { CartContext } from "../contexts/cart.context";
 import { UserContexts } from "../contexts/user.contexts";
+
 import { signOutUser } from "../utils/firebase/Firebase.utils";
-import logo from "../assets/logo.png";
+
+import CartDropdown from "../components/cart-dropdown/CartDropdown.component";
 import CartIcon from "../components/cart-icon/CartIcon.component";
+
+import logo from "../assets/logo.png";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContexts);
   const [nav, setNav] = useState(false);
+  const { isCartOpen } = useContext(CartContext);
 
   const handleNav = () => {
     setNav(!nav);
@@ -47,6 +55,7 @@ const Navigation = () => {
             {/* Cart Icon */}
             <CartIcon />
           </ul>
+          {isCartOpen && <CartDropdown />}
 
           {/* Mobile Navigation Icon */}
           <div onClick={handleNav} className="block md:hidden">
