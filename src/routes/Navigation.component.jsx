@@ -3,7 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { UserContexts } from "../contexts/user.contexts";
 import { signOutUser } from "../utils/firebase/Firebase.utils";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
+import CartIcon from "../components/cart-icon/CartIcon.component";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContexts);
@@ -31,7 +32,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex">
+          <ul className="hidden md:flex items-center">
             {navItems.map((item) => (
               <Link
                 to={item.to}
@@ -39,9 +40,12 @@ const Navigation = () => {
                 onClick={item.action || null}
                 className="p-4 hover:bg-sky-300 rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
               >
-                <p to={item.to}>{item.text.toUpperCase()}</p>
+                <p>{item.text.toUpperCase()}</p>
               </Link>
             ))}
+
+            {/* Cart Icon */}
+            <CartIcon />
           </ul>
 
           {/* Mobile Navigation Icon */}
@@ -57,7 +61,6 @@ const Navigation = () => {
                 : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%] z-10"
             }
           >
-            {/* Mobile Navigation Items */}
             {navItems.map((item) => (
               <li
                 key={item.id}

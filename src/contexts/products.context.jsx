@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
+
+// Products data
 import Shop_Data from "../shop-data.json";
 
 export const ProductsContext = createContext({
