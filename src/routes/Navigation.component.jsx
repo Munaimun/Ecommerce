@@ -33,13 +33,14 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex">
             {navItems.map((item) => (
-              <li
+              <Link
+                to={item.to}
                 key={item.id}
                 onClick={item.action || null}
                 className="p-4 hover:bg-sky-300 rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
               >
-                <Link to={item.to}>{item.text}</Link>
-              </li>
+                <p to={item.to}>{item.text.toUpperCase()}</p>
+              </Link>
             ))}
           </ul>
 
@@ -62,9 +63,9 @@ const Navigation = () => {
                 key={item.id}
                 onClick={() => {
                   handleNav();
-                  if (item.action) item.action(); // Execute signOutHandler on mobile if necessary
+                  if (item.action) item.action();
                 }}
-                className="p-4 border-b rounded-xl text-white hover:bg-gray-400 duration-300 hover:text-black cursor-pointer border-gray-600"
+                className="p-4 border-b rounded-xl text-white hover:bg-gray-400 focus:bg-gray-400 active:bg-gray-400 duration-300 hover:text-black focus:text-black active:text-black cursor-pointer border-gray-600"
               >
                 <Link to={item.to}>{item.text}</Link>
               </li>
