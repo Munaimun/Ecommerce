@@ -7,6 +7,7 @@ import "./App.css";
 import Navigation from "./routes/Navigation.component";
 import Authentication from "./routes/Authentication";
 import Shop from "./routes/shop/Shop.component";
+import CheckOut from "./routes/chekout/CheckOut.component";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
           <Route path="auth" element={<Authentication />} />
+          <Route path="checkout" element={<CheckOut />} />
         </Route>
       </Routes>
       {/* For showing the react toast */}
