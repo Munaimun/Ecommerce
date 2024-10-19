@@ -7,7 +7,7 @@ import shoppingBag from "../../assets/shopping-bag.svg";
 import "./CartIcon.styles.scss";
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   // function for open or close cart dropdown
   const toggelIsCartOpen = () => setIsCartOpen(!isCartOpen);
@@ -15,7 +15,7 @@ const CartIcon = () => {
   return (
     <div className="cart-icon-container" onClick={toggelIsCartOpen}>
       <img src={shoppingBag} alt="Shopping Icon" className="shopping-icon" />
-      <span className="item-count">10</span>
+      <span className="item-count">{cartCount}</span>
     </div>
   );
 };
