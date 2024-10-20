@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 
-// Helper function
+// Helper function for adding item to the cart
 const addCartItem = (cartItems, productToAdd) => {
   // It will check if the item exists
   const existingCartItem = cartItems.find(
