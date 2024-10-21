@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
 
   return (
     // group allows to apply styles to child elements when the parent is hovered.
-    <div className="relative group bg-white border rounded-xl shadow-lg p-6">
+    <div className="m-auto relative group bg-white sm:w-72 border rounded-xl shadow-lg p-6 mb-6">
       <img src={imageUrl} alt={name} className="w-52 sm:w-full h-72" />
 
       <div className="absolute sm:top-48 left-0 right-0 bottom-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
