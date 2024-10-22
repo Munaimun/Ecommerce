@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
+import Navigation from "./routes/Navigation.component";
 import Home from "./routes/Home.component";
+import Shop from "./routes/shop/Shop.component";
+import Authentication from "./routes/Authentication";
+import CheckOut from "./routes/chekout/CheckOut.component";
 
 import "./App.css";
-import Navigation from "./routes/Navigation.component";
-import Authentication from "./routes/Authentication";
-import Shop from "./routes/shop/Shop.component";
-import CheckOut from "./routes/chekout/CheckOut.component";
 
 function App() {
   return (
