@@ -5,8 +5,8 @@ import "./CategoryPreview.styles.scss";
 const CategoryPreview = ({ title, products }) => {
   return (
     <div className="">
-      <p>
-        <span>{title.toUpperCase()}</span>
+      <p className="ml-4 mb-4">
+        <span className="text-xl font-semibold">{title.toUpperCase()}</span>
       </p>
 
       <div className="flex flex-wrap">
