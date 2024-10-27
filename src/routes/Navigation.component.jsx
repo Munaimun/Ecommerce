@@ -23,7 +23,8 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { id: 1, text: "Shop", to: "shop" },
+    { id: 1, text: "home", to: "/" },
+    { id: 2, text: "Shop", to: "shop" },
     currentUser
       ? { id: 3, text: "Sign Out", to: "auth", action: signOutUser }
       : { id: 3, text: "Sign In", to: "auth" },
