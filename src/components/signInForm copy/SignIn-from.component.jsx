@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -8,7 +8,6 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/Firebase.utils";
 
-import { UserContexts } from "../../contexts/user.contexts";
 import FormInput from "../form-input/FormInput.component";
 import Button from "../Button/Button.component";
 

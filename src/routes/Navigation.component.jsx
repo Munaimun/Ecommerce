@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
 
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
-import { CartContext } from "../contexts/cart.context";
-import { UserContexts } from "../contexts/user.contexts";
-
+import { selectIsCartOpen } from "../store/cart/cartSelector";
+import { selectCurrentUser } from "../store/user/userSelector";
 import { signOutUser } from "../utils/firebase/Firebase.utils";
 
 import CartDropdown from "../components/cart-dropdown/CartDropdown.component";
@@ -14,16 +14,16 @@ import CartIcon from "../components/cart-icon/CartIcon.component";
 import logo from "../assets/logo.png";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContexts);
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
   const [nav, setNav] = useState(false);
-  const { isCartOpen } = useContext(CartContext);
 
   const handleNav = () => {
     setNav(!nav);
   };
 
   const navItems = [
-    { id: 1, text: "category", to: "/" },
+    { id: 1, text: "categories", to: "/" },
     { id: 2, text: "Shop", to: "shop" },
     currentUser
       ? { id: 3, text: "Sign Out", to: "auth", action: signOutUser }
