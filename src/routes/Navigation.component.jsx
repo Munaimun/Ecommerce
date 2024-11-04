@@ -32,8 +32,8 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="fixed w-full top-0 left-0 z-20 bg-sky-950 shadow-lg">
-        <div className="flex justify-between items-center h-16 max-w-[1240px] mx-auto px-4 text-white">
+      <div className="fixed w-full top-0 left-0 z-20 bg-zinc-50 shadow-lg">
+        <div className="flex justify-between items-center h-16 max-w-[1240px] mx-auto px-4 text-black">
           {/* Logo */}
           <Link to="/" className="w-8">
             <img src={logo} alt="Logo" />
@@ -46,7 +46,7 @@ const Navigation = () => {
                 to={item.to}
                 key={item.id}
                 onClick={item.action || null}
-                className="p-4 hover:bg-sky-300 rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
+                className="p-4 hover:bg-slate-200 rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
               >
                 <p>{item.text.toUpperCase()}</p>
               </Link>

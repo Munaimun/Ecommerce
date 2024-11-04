@@ -6,7 +6,7 @@ import {
 } from "../../store/cart/cartSelector";
 import { setIsCartOpen } from "../../store/cart/cartAction.js";
 
-import shoppingBag from "../../assets/shopping-bag.svg";
+import shoppingBag from "../../assets/shopping-bag_2.svg";
 
 import "./CartIcon.styles.scss";
 
